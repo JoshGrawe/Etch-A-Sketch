@@ -1,11 +1,8 @@
 const container = document.querySelector(".container")
 const newGridButton = document.querySelector(".new-grid")
-const colorSelectorButton = document.querySelector(".color-selector")
-const eraseButton = document.querySelector(".button-erase").addEventListener("click", erase)
-const randomButton = document.querySelector(".button-random").addEventListener("click", random)
-const regularButton = document.querySelector(".button-regular").addEventListener("click", regular)
-const gridItems = document.querySelectorAll(".grid-item")
 
+
+var erase = false;
 
 
 
@@ -22,14 +19,18 @@ function createGrid (squaresPerSide){
         newdiv.className = "grid-item"
         newdiv.addEventListener("mouseover", (e) => {
             
+       
+        newdivcss = e.target
+        newdivcss.style.backgroundColor = "black"
+          
            
-        
-            newdivcss = e.target
-            newdivcss.style.backgroundColor = colorSelectorButton.value
+       
+           
           
             
         })
-        
+       
+     
         container.appendChild(newdiv)
         
        
@@ -37,8 +38,8 @@ function createGrid (squaresPerSide){
 
 
 }
-function erase(){
-
+function eraseFunction(){
+ 
 }
 
 function regular(){
@@ -50,7 +51,7 @@ function random(){
 }
 
 function reset () {
- 
+    const gridItems = document.querySelectorAll(".grid-item")
     console.log(gridItems)
     gridItems.forEach(node => {
         console.log("ran")
