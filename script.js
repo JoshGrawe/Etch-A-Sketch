@@ -2,7 +2,11 @@ const container = document.querySelector(".container")
 const newGridButton = document.querySelector(".new-grid")
 const eraseButton = document.querySelector(".erase-button").addEventListener("click",eraseFunction)
 var erase = false
-var backgroundColor = "red"
+const colorChanger2 = document.querySelector(".select-color2")
+var lastcolor;
+colorChanger2.addEventListener("change",() => {
+    console.log(colorChanger2.value)
+})
 
 
 
@@ -23,7 +27,8 @@ function createGrid (squaresPerSide){
             
        
         newdivcss = e.target
-        newdivcss.style.backgroundColor = backgroundColor
+      
+        newdivcss.style.backgroundColor = colorChanger2.value
           
            
        
@@ -46,9 +51,13 @@ function eraseFunction(){
     
     erase =! erase  
     console.log(erase)  
- 
+  
+   
     if (erase === true){
-        backgroundColor = "white"
+        colorChanger2.style.display = "none"
+        lastcolor = colorChanger2.value
+        console.log(lastcolor)
+        colorChanger2.value = "#ffffff"
        
 
               
@@ -61,16 +70,17 @@ function eraseFunction(){
        
     }else{
       
-            
-        backgroundColor = "red"
+       colorChanger2.style.display = "inline"
+     
+       colorChanger2.value = lastcolor
 
         
 
     }
 }
 
-function regular(){
-
+function regular(color){
+console.log(color)
 }
 
 function random(){
@@ -89,17 +99,29 @@ newGridButton.addEventListener("click" , () => {
     if (squaresPerSide > 100){
         alert("100 Max Input")
     }
-    reset()
-    newheight =  22 * squaresPerSide
-    newWidth = 22 * squaresPerSide
-    container.style.height = `${newheight}px`
-    container.style.width = `${newWidth}px`
-
-    createGrid(squaresPerSide*squaresPerSide)
+    else{
+        reset()
+        newheight =  22 * squaresPerSide
+        newWidth = 22 * squaresPerSide
+        container.style.height = `${newheight}px`
+        container.style.width = `${newWidth}px`
+    
+        createGrid(squaresPerSide*squaresPerSide)
+    }
+   
 
 })
 
+/*
+Fill bucket 
+will change color of sibling nodes until it reaches a element with a specific
+
+
+*/
+
+
 createGrid(256)
+
 
 
 
