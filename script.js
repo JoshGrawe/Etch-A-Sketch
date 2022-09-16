@@ -2,7 +2,7 @@ const container = document.querySelector(".container")
 const newGridButton = document.querySelector(".new-grid")
 const eraseButton = document.querySelector(".erase-button").addEventListener("click",eraseFunction)
 var erase = false
-const colorChanger2 = document.querySelector(".select-color2")
+const colorChanger2 = document.querySelector(".select-color-button")
 var lastcolor;
 colorChanger2.addEventListener("change",() => {
     console.log(colorChanger2.value)
@@ -113,8 +113,7 @@ newGridButton.addEventListener("click" , () => {
 })
 
 /*
-Fill bucket 
-will change color of sibling nodes until it reaches a element with a specific
+
 
 
 */

@@ -21,4 +21,19 @@ body{
 }
 
 
+button{
+    background-color: aqua;
+    width: 150px;
+  
+
+
+}
+
+input{
+  
+    width: 25px;
+    height: 25px;
+    background-color: aqua;
+
+}
 
