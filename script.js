@@ -1,8 +1,9 @@
 const container = document.querySelector(".container")
 const newGridButton = document.querySelector(".new-grid")
+const eraseButton = document.querySelector(".erase-button").addEventListener("click",eraseFunction)
+var erase = false
+var backgroundColor = "red"
 
-
-var erase = false;
 
 
 
@@ -17,11 +18,12 @@ function createGrid (squaresPerSide){
         newdiv.style.borderColor = "black"
         newdiv.style.borderWidth = "0.2px"
         newdiv.className = "grid-item"
+
         newdiv.addEventListener("mouseover", (e) => {
             
        
         newdivcss = e.target
-        newdivcss.style.backgroundColor = "black"
+        newdivcss.style.backgroundColor = backgroundColor
           
            
        
@@ -38,8 +40,33 @@ function createGrid (squaresPerSide){
 
 
 }
+
+
 function eraseFunction(){
+    
+    erase =! erase  
+    console.log(erase)  
  
+    if (erase === true){
+        backgroundColor = "white"
+       
+
+              
+               
+           
+               
+              
+                
+          
+       
+    }else{
+      
+            
+        backgroundColor = "red"
+
+        
+
+    }
 }
 
 function regular(){
@@ -52,9 +79,7 @@ function random(){
 
 function reset () {
     const gridItems = document.querySelectorAll(".grid-item")
-    console.log(gridItems)
     gridItems.forEach(node => {
-        console.log("ran")
         console.log(node)
         node.remove()
     })  
@@ -75,5 +100,8 @@ newGridButton.addEventListener("click" , () => {
 })
 
 createGrid(256)
+
+
+
 //if input is 7 then grid is 49 squares with a width of 22px each
 // the width needs to extend
